@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📘 مكتبة Earth التعليمية</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#8a2be2;
+  --accent:#d8b4ff;
+  --bg-gradient:linear-gradient(135deg,#2e004f,#5a00a0,#8a2be2);
+}
+body{
+  margin:0;
+  font-family:"Cairo",sans-serif;
+  direction:rtl;
+  background:var(--bg-gradient);
+  color:#fff;
+}
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  padding:15px 30px;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(10px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:100;
+}
+header h1{
+  font-size:1.6em;
+  color:var(--accent);
+}
+header nav a{
+  color:#fff;
+  margin-left:15px;
+  text-decoration:none;
+  transition:0.3s;
+}
+header nav a:hover{
+  color:var(--accent);
+}
+main{
+  margin-top:90px;
+  padding:20px;
+}
+section{
+  background:rgba(255,255,255,0.1);
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  margin-bottom:25px;
+}
+.videos-grid,.images-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px;
+}
+.video-card,.live-card,.image-card{
+  background:rgba(186,85,211,0.25);
+  border-radius:12px;
+  padding:10px;
+  transition:transform 0.3s ease,box-shadow 0.3s ease;
+}
+.video-card:hover,.live-card:hover,.image-card:hover{
+  transform:scale(1.03);
+  box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+.video-card iframe,.live-card iframe{
+  width:100%;
+  height:200px;
+  border-radius:10px;
+}
+.comment-box,input,button{
+  margin-top:10px;
+  padding:10px;
+  border-radius:8px;
+  border:none;
+  font-size:16px;
+}
+input{
+  width:70%;
+}
+button{
+  background:var(--accent);
+  color:#000;
+  cursor:pointer;
+  font-weight:bold;
+  margin-left:5px;
+  transition:0.3s;
+}
+button:hover{
+  background:#fff;
+  transform:scale(1.05);
+}
+.comment-item{
+  background:rgba(186,85,211,0.25);
+  border-radius:10px;
+  padding:10px;
+  margin:6px 0;
+}
+iframe.pdf-viewer{
+  width:100%;
+  height:600px;
+  border-radius:10px;
+  border:none;
+}
+@media(max-width:600px){
+  .video-card iframe,.live-card iframe{
+    height:150px
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>📘 مكتبة Earth التعليمية</h1>
+<nav>
+<a href="#videos">🎥 الفيديوهات</a>
+<a href="#live">📺 البث المباشر</a>
+<a href="#images">🖼️ الصور</a>
+<a href="#pdf">📄 ملفات PDF</a>
+<a href="#vote">🗳️ التصويت</a>
+<a href="#comments">💬 التعليقات</a>
+<a href="#assistant">🤖 يحيى أمهيضرة</a>
+<a href="#lesson">📚 الدروس</a>
+</nav>
+</header>
+
+<main>
+
+<!-- فيديوهات -->
+<section id="videos">
+<h2>🎥 فيديوهات تعليمية</h2>
+<div class="videos-grid">
+<div class="video-card"><iframe src="https://player.vimeo.com/video/1132735282" frameborder="0" allowfullscreen></iframe><h4>فيديو 1</h4></div>
+<div class="video-card"><iframe src="https://player.vimeo.com/video/1132261152" frameborder="0" allowfullscreen></iframe><h4>فيديو 2</h4></div>
+</div>
+</section>
+
+<!-- بث مباشر -->
+<section id="live">
+<h2>📺 البث المباشر</h2>
+<div class="live-card" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+<iframe src="https://player.vimeo.com/video/b25f4060-2752-46bd-aaa7-70ed3dcf8685?autoplay=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allowfullscreen></iframe>
+<h4>البث المباشر الخاص بك</h4>
+</div>
+</section>
+
+<!-- صور -->
+<section id="images">
+<h2>🖼️ معرض الصور</h2>
+<div class="images-grid">
+<div class="image-card"><img src="https://via.placeholder.com/400x250?text=صورة+1" alt="صورة 1"></div>
+<div class="image-card"><img src="https://via.placeholder.com/400x250?text=صورة+2" alt="صورة 2"></div>
+</div>
+</section>
+
+<!-- PDF -->
+<section id="pdf">
+<h2>📄 ملفات PDF</h2>
+<iframe class="pdf-viewer" src="https://example.com/your-file.pdf"></iframe>
+<a href="https://example.com/your-file.pdf" download>⬇️ تحميل الملف</a>
+</section>
+
+<!-- التصويت -->
+<section id="vote">
+<h2>🗳️ تصويت على فئة الفيديو القادم</h2>
+<button onclick="vote('physique')">فيزياء</button>
+<button onclick="vote('chimie')">كيمياء</button>
+<button onclick="vote('svt')">علوم الحياة والأرض</button>
+<h3>النتائج:</h3>
+<ul>
+<li>فيزياء: <span id="physiqueCount">0</span></li>
+<li>كيمياء: <span id="chimieCount">0</span></li>
+<li>علوم الحياة والأرض: <span id="svtCount">0</span></li>
+</ul>
+</section>
+
+<!-- التعليقات -->
+<section id="comments">
+<h2>💬 التعليقات</h2>
+<div class="comment-box">
+<input id="commentInput" placeholder="اكتب تعليقك هنا...">
+<button onclick="sendComment()">إرسال</button>
+</div>
+<div id="commentsDisplay"></div>
+</section>
+
+<!-- مساعد AI -->
+<section id="assistant">
+<h2>🤖 مساعد يحيى أمهيضرة</h2>
+<div>
+<input type="text" id="aiQuestion" placeholder="اكتب سؤالك هنا...">
+<button onclick="askAI()">اسأل يحيى</button>
+</div>
+<div id="aiAnswer" style="margin-top:10px;background:rgba(255,255,255,0.1);padding:10px;border-radius:10px;"></div>
+</section>
+
+<!-- درس الهواء والذرات والجزيئات -->
+<section id="lesson">
+<h2>📚 درس: L’air autour de nous & Les molécules et les atomes</h2>
+
+<p><strong>1. Composition de l’air :</strong></p>
+<ul>
+<li>≈ 78% Diazote (N₂)</li>
+<li>≈ 21% Dioxygène (O₂)</li>
+<li>≲ 1% autres gaz (Argon, CO₂, vapeur d’eau…)</li>
+</ul>
+
+<p><strong>2. Propriétés de l’air :</strong></p>
+<ul>
+<li>L’air n’a pas de forme propre : il prend la forme du récipient.</li>
+<li>Compressible et expansible : pression ↑ si volume ↓, pression ↓ si volume ↑.</li>
+<li>L’air a une masse : ~1,29 g/L à température et pression normales.</li>
+</ul>
+
+<p><strong>3. Exemples d’application :</strong></p>
+<ul>
+<li>50 m³ d’air → ~10 m³ O₂ + 40 m³ N₂</li>
+<li>30 m³ d’air → masse ≈ 38,7 kg</li>
+<li>Seringue : compression → pression ↑ ; détente → pression ↓</li>
+</ul>
+
+<p><strong>4. Atomes et molécules :</strong></p>
+<ul>
+<li><strong>Atome :</strong> plus petite particule qui conserve les propriétés d’un élément chimique.</li>
+<li><strong>Molécule :</strong> assemblage d’au moins deux atomes.</li>
+<li>Exemples : H₂ → corps pur simple ; H₂O → corps pur composé ; CO₂ → corps pur composé.</li>
+</ul>
+
+<p><strong>5. Importance :</strong></p>
+<ul>
+<li>Comprendre l’air, sa composition et ses propriétés.</li>
+<li>Connaitre la structure de la matière (atomes et molécules) pour comprendre les réactions chimiques et phénomènes naturels.</li>
+</ul>
+
+<p><strong>6. Illustrations :</strong></p>
+<div class="images-grid">
+<div class="image-card"><img src="https://webphysique.fr/wp-content/uploads/2020/02/composition-simplifie-air-300x188.jpg" alt="Composition de l'air"></div>
+<div class="image-card"><img src="https://physique-chimie-college.fr/wp-content/uploads/2015/09/molecule-exemple-modele-moleculaire.png" alt="Molécule"></div>
+<div class="image-card"><img src="https://parlonssciences.ca/sites/default/files/styles/x_large/public/2021-01/Composantes_atome_h%C3%A9lium_0.png?itok=3IqX8HhV" alt="Atome"></div>
+</div>
+
+</section>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script>
+// Firebase
+const firebaseConfig = {
+  apiKey: "YOUR_FIREBASE_API_KEY",
+  authDomain: "earth-education-7d73c.firebaseapp.com",
+  databaseURL: "https://earth-education-7d73c-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "earth-education-7d73c",
+  storageBucket: "earth-education-7d73c.appspot.com",
+  messagingSenderId: "178738586459",
+  appId: "1:178738586459:web:e97fe0958b2dd9df34307e"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+// Comments
+function sendComment(){
+  const text = document.getElementById('commentInput').value.trim();
+  if(!text) return alert('اكتب تعليق أولاً');
+  db.ref('comments').push({text,timestamp:Date.now()});
+  document.getElementById('commentInput').value='';
+}
+db.ref('comments').on('value', snapshot=>{
+  const container = document.getElementById('commentsDisplay');
+  container.innerHTML='';
+  snapshot.forEach(snap=>{
+    const div = document.createElement('div');
+    div.className='comment-item';
+    div.textContent = snap.val().text;
+    container.appendChild(div);
+  });
+});
+
+// Voting
+const voteRef = db.ref('votes');
+function vote(cat){voteRef.child(cat).transaction(c=>(c||0)+1);}
+voteRef.on('value', snapshot=>{
+  const data = snapshot.val()||{};
+  document.getElementById('physiqueCount').textContent = data.physique||0;
+  document.getElementById('chimieCount').textContent = data.chimie||0;
+  document.getElementById('svtCount').textContent = data.svt||0;
+});
+
+// AI Assistant
+async function askAI(){
+  const question = document.getElementById('aiQuestion').value.trim();
+  if(!question) return alert('اكتب سؤال أولاً');
+  const answerDiv = document.getElementById('aiAnswer');
+  answerDiv.textContent = "يحيى يفكر...";
+  try{
+    const res = await fetch(`https://YOUR_CLOUD_FUNCTION_URL/askAI?q=${encodeURIComponent(question)}`);
+    const data = await res.json();
+    answerDiv.textContent = "يحيى أمهيضرة: "+data.answer;
+  } catch(err){
+    console.error(err);
+    answerDiv.textContent = "حدث خطأ، حاول لاحقًا.";
+  }
+}
+</script>
+
+</body>
+</html>
